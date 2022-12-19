@@ -33,4 +33,37 @@
 		</where>
 	</select>
 	
+	<update id="update">
+		update admin
+		<set>
+			<!-- 이름 변경 시 -->
+			<if test="admin.adminName != null">
+				admin_name=#{admin.adminName},
+			</if>
+			
+			<!-- 아이디 변경 시 -->
+			<if test="admin.adminId != null">
+				admin_id=#{admin.adminId},
+			</if>
+			
+			<!-- 비밀번호 변경 시 -->
+			<if test="admin.adminPassword != null">
+				admin_password=#{admin.adminPassword},
+			</if>
+			
+			<!-- 전화번호 변경 시 -->
+			<if test="admin.adminPhoneNumber != null">
+				admin_phone_number=#{admin.adminPhoneNumber},
+			</if>
+			
+			<!-- 사무소 변경 시 -->
+			<if test="admin.countyOfficeId != null">
+				county_office_id=#{admin.countyOfficeId},
+			</if>
+		</set>
+		<where>
+			id = #{id}
+		</where>
+	</update>
+	
 </mapper>

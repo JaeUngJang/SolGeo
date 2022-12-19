@@ -10,6 +10,9 @@ import project.solgeo.domain.Admin;
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+
 @SpringBootTest
 @Transactional
 @Rollback(value = true)
@@ -38,19 +41,43 @@ public class AdminMapperTest {
     @DisplayName("Select Admin")
     void select() {
         // given
-        Admin selectAdmin = Admin.builder()
-                .adminName("name")
-                .adminId("id")
-                .adminPhoneNumber("phone")
-                .build();
-        List<Admin> selectedAdmins = adminMapper.findAll(selectAdmin);
+        String adminName = "admin";
+        String adminId = "adminId";
+        String adminPassword = "adminPassword";
+        String adminPhoneNumber = "adminPhoneNumber";
+        Boolean adminSex = true;  //true-Male, false-female
+
+        Admin admin = adminSave(adminName, adminId, adminPassword, adminPhoneNumber, adminSex);
 
         // when
+        // 모든 정보 입력 검증
+        test(null, adminName, adminId, adminPhoneNumber, admin);
+        // adminName 입력
+        test(null, "dm", null, null, admin);
 
-
-        // then
     }
 
+    Admin adminSave(String adminName, String adminId, String adminPassword, String adminPhoneNumber, Boolean adminSex) {
+        Admin admin = Admin.builder()
+                .adminName(adminName)
+                .adminId(adminId)
+                .adminPassword(adminPassword)
+                .adminPhoneNumber(adminPhoneNumber)
+                .adminSex(adminSex)  //true-Male, false-female
+                .build();
+        adminMapper.save(admin);
+        return admin;
+    }
 
+    void test(Long id, String adminName, String adminId, String adminPhoneNumber, Admin... admins) {
+        Admin selectAdmin = Admin.builder()
+                .id(id)
+                .adminName(adminName)
+                .adminId(adminId)
+                .adminPhoneNumber(adminPhoneNumber)
+                .build();
+        List<Admin> result = adminMapper.findAll(selectAdmin);
+        assertThat(result.size()).isEqualTo(admins.length);
+    }
 
 }
