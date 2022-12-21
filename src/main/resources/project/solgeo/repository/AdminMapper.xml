@@ -33,6 +33,12 @@
 		</where>
 	</select>
 	
+	<select id="findByAdminId" resultType="project.solgeo.domain.Admin">
+		select id, admin_name, admin_id, admin_phone_number, admin_sex
+		from admin
+		where admin_id = #{id}
+	</select>
+	
 	<update id="update">
 		update admin
 		<set>
@@ -56,9 +62,9 @@
 				admin_phone_number=#{admin.adminPhoneNumber},
 			</if>
 			
-			<!-- 사무소 변경 시 -->
-			<if test="admin.countyOfficeId != null">
-				county_office_id=#{admin.countyOfficeId},
+			<!-- 성별 변경 시 -->
+			<if test="admin.adminSex != null">
+				admin_sex=#{admin.adminSex},
 			</if>
 		</set>
 		<where>
@@ -66,4 +72,12 @@
 		</where>
 	</update>
 	
+	<delete id="delete">
+		delete from admin
+		<where>
+			id=#{id}
+		</where>
+	</delete>
+
+
 </mapper>
