@@ -93,22 +93,46 @@ public class AdminMapperTest {
 
         Admin admin = adminSave(adminName, adminId, adminPassword, adminPhoneNumber, adminSex);
 
-        // when
+        // when - whole variables
         String updatedAdminName = "updatedAdmin";
         String updatedAdminId = "updatedAdminId";
         String updatedAdminPassword = "updatedAdminPassword";
         String updatedAdminPhoneNumber = "updatedAdminPN";
         Boolean updatedAdminSex = false;  //true-Male, false-female
-
         AdminDto adminDto = new AdminDto(updatedAdminName, updatedAdminId, updatedAdminPassword, updatedAdminPhoneNumber, updatedAdminSex);
         adminMapper.update(admin.getId(), adminDto);
 
+        // then - whole variables
+        Admin updatedAdmin = adminMapper.findByAdminId(updatedAdminId).get();
+        assertThat(updatedAdmin.getId()).isEqualTo(admin.getId());
+        assertThat(updatedAdmin.getAdminName()).isEqualTo(updatedAdminName);
+    }
+
+    @Test
+    @DisplayName("Update Part of Admin")
+    void updatePart() {
+        // given
+        String adminName = "admin";
+        String adminId = "adminId";
+        String adminPassword = "adminPassword";
+        String adminPhoneNumber = "adminPhoneNumber";
+        Boolean adminSex = true;  //true-Male, false-female
+
+        Admin admin = adminSave(adminName, adminId, adminPassword, adminPhoneNumber, adminSex);
+
+        // when
+        String updatedAdminId = "updatedAdminId";
+        String updatedAdminPassword = "updatedAdminPassword";
+        String updatedAdminPhoneNumber = "updatedAdminPN";
+        Boolean updatedAdminSex = false;  //true-Male, false-female
+        AdminDto adminDto = new AdminDto(null, updatedAdminId, updatedAdminPassword, updatedAdminPhoneNumber, updatedAdminSex);
+        adminMapper.update(admin.getId(), adminDto);
 
         // then
-        Optional<Admin> updatedAdmin = adminMapper.findByAdminId(updatedAdminId);
-        Long id = updatedAdmin.get().getId();
-        Long id1 = admin.getId();
-        assertThat(updatedAdmin.get().getId()).isEqualTo(admin.getId());
+        Admin updatedAdmin = adminMapper.findByAdminId(updatedAdminId).get();
+        assertThat(updatedAdmin.getAdminName()).isEqualTo(adminName);    // 변경 X
+        assertThat(updatedAdmin.getAdminId()).isEqualTo(updatedAdminId); // 변경 O
+        assertThat(updatedAdmin.getAdminId()).isEqualTo(updatedAdminId); // 변경 O
     }
 
     @Test
