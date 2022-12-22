@@ -35,7 +35,13 @@ public class AdminMapperTest {
         String adminPhoneNumber = "adminPhoneNumber";
         Boolean adminSex = true;  //true-Male, false-female
 
+        // when
         adminSave(adminName, adminId, adminPassword, adminPhoneNumber, adminSex);
+
+        // then
+        Admin foundAdmin = adminMapper.findByAdminId(adminId).get();
+        assertThat(foundAdmin.getId()).isEqualTo(foundAdmin.getId());
+
     }
 
     @Test

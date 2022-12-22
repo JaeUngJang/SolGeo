@@ -2,8 +2,10 @@ package project.solgeo.domain;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class Building {
 
     // PK
@@ -15,7 +17,4 @@ public class Building {
         this.id = id;
         this.buildingNo = buildingNo;
     }
-
-
-
 }
