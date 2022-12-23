@@ -36,7 +36,7 @@
 	<select id="findByAdminId" resultType="project.solgeo.domain.Admin">
 		select id, admin_name, admin_id, admin_phone_number, admin_sex
 		from admin
-		where admin_id = #{id}
+		where admin_id = #{adminId}
 	</select>
 	
 	<update id="update">
