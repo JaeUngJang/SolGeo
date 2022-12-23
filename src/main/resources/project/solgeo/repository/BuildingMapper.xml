@@ -22,7 +22,9 @@
 	<update id="update">
 		update building
 		<set>
+		    <if test="building.buildingNo != null">
 			building_no=#{building.buildingNo},
+		    </if>
 		</set>
 		<where>
 			id = #{id}
