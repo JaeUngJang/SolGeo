@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project.solgeo.repository.RoomMapper">
+	
+	<insert id="save" useGeneratedKeys="true" keyProperty="id">
+		insert into room (room_floor, room_no, building_id)
+		values (#{roomFloor}, #{roomNo}, #{buildingId})
+	</insert>
+	
+	
+	<select id="findByBuildingFloorRoom" resultType="project.solgeo.domain.Room">
+		select id, room_floor, room_no, building_id
+		from room
+		<where>
+			<if test="buildingId != null">
+				and building_id=#{buildingId}
+			</if>
+			<if test="roomFloor != null">
+				and room_floor=#{roomFloor}
+			</if>
+			<if test="roomNo != null">
+				and room_no=#{roomNo}
+			</if>
+		</where>
+	</select>
+	
+	<update id="update">
+		update room
+		<set>
+			<if test="room.roomFloor != null">
+				room_floor=#{room.roomFloor},
+			</if>
+		    <if test="room.roomNo != null">
+			   room_no=#{room.roomNo},
+		    </if>
+		</set>
+		<where>
+			id = #{id}
+		</where>
+	</update>
+	
+<!--		where id = #{id}-->
+<!--	<select id="findById" resultType="project.solgeo.domain.Room">-->
+<!--		select id, building_no-->
+<!--		from room-->
+	
+<!--	</select>-->
+
+	<delete id="delete">
+		delete from room
+		<where>
+			id=#{id}
+		</where>
+	</delete>
+
+</mapper>
