@@ -30,7 +30,7 @@ public class BuildingMapperTest {
         // given
         Integer buildingNo = 10;
         Building building = Building.builder()
-                .buildingNo(buildingNo)
+                .id(buildingNo)
                 .build();
 
         // when
@@ -48,10 +48,10 @@ public class BuildingMapperTest {
         Integer buildingNo1 = 9;
         Integer buildingNo2 = 10;
         Building building1 = Building.builder()
-                .buildingNo(buildingNo1)
+                .id(buildingNo1)
                 .build();
         Building building2 = Building.builder()
-                .buildingNo(buildingNo2)
+                .id(buildingNo2)
                 .build();
         buildingMapper.save(building1);
         buildingMapper.save(building2);
@@ -71,7 +71,7 @@ public class BuildingMapperTest {
         // given
         Integer buildingNo = 10;
         Building building = Building.builder()
-                .buildingNo(buildingNo)
+                .id(buildingNo)
                 .build();
         buildingMapper.save(building);
 
@@ -85,10 +85,11 @@ public class BuildingMapperTest {
     @Test
     @DisplayName("Update Building")
     void update() {
+
         // given
         Integer buildingNo = 10;
         Building building = Building.builder()
-                .buildingNo(buildingNo)
+                .id(buildingNo)
                 .build();
         buildingMapper.save(building);
 
@@ -98,8 +99,8 @@ public class BuildingMapperTest {
         buildingMapper.update(building.getId(), buildingDto);
 
         // then
-        Building updatedBuilding = buildingMapper.findById(building.getId()).get();
-        assertThat(updatedBuilding.getBuildingNo()).isEqualTo(updatedBuildingNo);
+        Building updatedBuilding = buildingMapper.findById(updatedBuildingNo).get();
+        assertThat(updatedBuilding.getId()).isEqualTo(updatedBuildingNo);
     }
 
     @Test
@@ -108,7 +109,7 @@ public class BuildingMapperTest {
         // given
         Integer buildingNo = 10;
         Building building = Building.builder()
-                .buildingNo(buildingNo)
+                .id(buildingNo)
                 .build();
         buildingMapper.save(building);
 
