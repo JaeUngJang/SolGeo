@@ -13,12 +13,12 @@ public interface BuildingMapper {
 
     void save(Building building);
 
-    void update(@Param("id") Long id, @Param("building") BuildingDto buildingDto);
+    void update(@Param("id") Integer id, @Param("building") BuildingDto buildingDto);
 
     List<Building> findAll();
 
-    Optional<Building> findById(Long id);
+    Optional<Building> findById(Integer id);
 
-    void delete(Long id);
+    void delete(Integer id);
 
 }
