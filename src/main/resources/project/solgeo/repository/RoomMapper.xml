@@ -4,9 +4,15 @@
 <mapper namespace="project.solgeo.repository.RoomMapper">
 	
 	<insert id="save" useGeneratedKeys="true" keyProperty="id">
-		insert into room (room_floor, room_no, building_id)
-		values (#{roomFloor}, #{roomNo}, #{buildingId})
+		insert into room (building_id, room_floor, room_no)
+		values (#{buildingId}, #{roomFloor}, #{roomNo})
 	</insert>
+	
+	
+	<select id="findAll" resultType="project.solgeo.domain.Room">
+		select id, room_floor, room_no, building_id
+		from room
+	</select>
 	
 	
 	<select id="findByBuildingFloorRoom" resultType="project.solgeo.domain.Room">
@@ -25,6 +31,7 @@
 		</where>
 	</select>
 	
+	
 	<update id="update">
 		update room
 		<set>
@@ -40,18 +47,13 @@
 		</where>
 	</update>
 	
-<!--		where id = #{id}-->
-<!--	<select id="findById" resultType="project.solgeo.domain.Room">-->
-<!--		select id, building_no-->
-<!--		from room-->
 	
-<!--	</select>-->
-
 	<delete id="delete">
 		delete from room
 		<where>
 			id=#{id}
 		</where>
 	</delete>
+	
 
 </mapper>

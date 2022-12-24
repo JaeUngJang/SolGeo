@@ -11,10 +11,10 @@ public class RoomDto {
     private Integer roomNo;
 
     //FK
-    private Long buildingId;
+    private Integer buildingId;
 
     @Builder
-    public RoomDto(Integer roomFloor, Integer roomNo, Long buildingId) {
+    public RoomDto(Integer roomFloor, Integer roomNo, Integer buildingId) {
         this.roomFloor = roomFloor;
         this.roomNo = roomNo;
         this.buildingId = buildingId;

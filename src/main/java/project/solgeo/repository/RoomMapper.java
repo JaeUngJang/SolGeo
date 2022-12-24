@@ -17,7 +17,7 @@ public interface RoomMapper {
 
     List<Room> findByBuildingFloorRoom(Room room);
 
-//    Optional<Room> findByRoomNo(Room room);
+    //Optional<Room> findByRoomNo(Room room);
 
     void update(@Param("id") Long id, @Param("room") RoomDto adminDto);
 
