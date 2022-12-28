@@ -4,8 +4,8 @@
 <mapper namespace="project.solgeo.repository.BuildingMapper">
 	
 	<insert id="save" useGeneratedKeys="true" keyProperty="id">
-			insert into building (id)
-			values (#{id})
+			insert into building (building_no)
+			values (#{buildingNo})
 	</insert>
 	
 	<select id="findAll" resultType="project.solgeo.domain.Building">
@@ -14,7 +14,7 @@
 	</select>
 	
 	<select id="findById" resultType="project.solgeo.domain.Building">
-		select id
+		select id, building_no
 		from building
 		where id = #{id}
 	</select>
@@ -22,7 +22,7 @@
 	<update id="update">
 		update building
 		<set>
-			id=#{building.id},
+			building_no=#{building.buildingNo},
 		</set>
 		<where>
 			id = #{id}

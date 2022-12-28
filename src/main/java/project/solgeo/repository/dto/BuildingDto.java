@@ -6,10 +6,12 @@ import lombok.Data;
 @Data
 public class BuildingDto {
 
-    private Integer id;
+    private Long id;
+    private Integer buildingNo;
 
     @Builder
-    public BuildingDto(Integer id) {
+    public BuildingDto(Long id, Integer buildingNo) {
         this.id = id;
+        this.buildingNo = buildingNo;
     }
 }

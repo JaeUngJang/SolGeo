@@ -9,10 +9,12 @@ import lombok.NoArgsConstructor;
 public class Building {
 
     // PK
-    private Integer id;
+    private Long id;
+    private Integer buildingNo;
 
     @Builder
-    public Building(Integer id) {
+    public Building(Long id, Integer buildingNo) {
         this.id = id;
+        this.buildingNo = buildingNo;
     }
 }
