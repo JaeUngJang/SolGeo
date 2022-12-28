@@ -30,7 +30,7 @@ public class BuildingMapperTest {
         // given
         Integer buildingNo = 10;
         Building building = Building.builder()
-                .id(buildingNo)
+                .buildingNo(buildingNo)
                 .build();
 
         // when
@@ -48,10 +48,10 @@ public class BuildingMapperTest {
         Integer buildingNo1 = 9;
         Integer buildingNo2 = 10;
         Building building1 = Building.builder()
-                .id(buildingNo1)
+                .buildingNo(buildingNo1)
                 .build();
         Building building2 = Building.builder()
-                .id(buildingNo2)
+                .buildingNo(buildingNo2)
                 .build();
         buildingMapper.save(building1);
         buildingMapper.save(building2);
@@ -71,7 +71,7 @@ public class BuildingMapperTest {
         // given
         Integer buildingNo = 10;
         Building building = Building.builder()
-                .id(buildingNo)
+                .buildingNo(buildingNo)
                 .build();
         buildingMapper.save(building);
 
@@ -89,18 +89,20 @@ public class BuildingMapperTest {
         // given
         Integer buildingNo = 10;
         Building building = Building.builder()
-                .id(buildingNo)
+                .buildingNo(buildingNo)
                 .build();
         buildingMapper.save(building);
 
         // when
         Integer updatedBuildingNo = 9;
-        BuildingDto buildingDto = new BuildingDto(updatedBuildingNo);
+        BuildingDto buildingDto = BuildingDto.builder()
+                .buildingNo(updatedBuildingNo)
+                .build();
         buildingMapper.update(building.getId(), buildingDto);
 
         // then
-        Building updatedBuilding = buildingMapper.findById(updatedBuildingNo).get();
-        assertThat(updatedBuilding.getId()).isEqualTo(updatedBuildingNo);
+        Building updatedBuilding = buildingMapper.findById(building.getId()).get();
+        assertThat(updatedBuilding.getId()).isEqualTo(building.getId());
     }
 
     @Test
@@ -109,7 +111,7 @@ public class BuildingMapperTest {
         // given
         Integer buildingNo = 10;
         Building building = Building.builder()
-                .id(buildingNo)
+                .buildingNo(buildingNo)
                 .build();
         buildingMapper.save(building);
 
