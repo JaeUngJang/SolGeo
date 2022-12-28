@@ -166,7 +166,7 @@ public class RoomMapperTest {
 
     private Building saveBuilding(Integer buildingNo) {
         Building building = Building.builder()
-                .id(buildingNo)
+                .buildingNo(buildingNo)
                 .build();
         buildingMapper.save(building);
         return building;
