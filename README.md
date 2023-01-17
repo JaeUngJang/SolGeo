@@ -10,5 +10,5 @@
 
 ## ERD
 <div> 
-    <a><img src="https://user-images.githubusercontent.com/83953721/204994687-cd4bba10-4dd5-4d03-b933-dde3603e38a0.jpg"></a> 
+    <a><img src="https://user-images.githubusercontent.com/83953721/212784771-fcfcf9e0-6566-418a-81fb-ebe1f04f1672.png"></a> 
 </div>
