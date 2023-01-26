@@ -105,7 +105,7 @@ public class AdminMapperTest {
         // then - whole variables
         Admin updatedAdmin = adminMapper.findByAdminId(updatedAdminId).get();
         assertThat(updatedAdmin.getId()).isEqualTo(admin.getId());
-        assertThat(updatedAdmin.getAdminName()).isEqualTo(updatedAdminName);
+        assertThat(updatedAdmin.getName()).isEqualTo(updatedAdminName);
     }
 
     @Test
@@ -130,7 +130,7 @@ public class AdminMapperTest {
 
         // then
         Admin updatedAdmin = adminMapper.findByAdminId(updatedAdminId).get();
-        assertThat(updatedAdmin.getAdminName()).isEqualTo(adminName);    // 변경 X
+        assertThat(updatedAdmin.getName()).isEqualTo(adminName);    // 변경 X
         assertThat(updatedAdmin.getAdminId()).isEqualTo(updatedAdminId); // 변경 O
         assertThat(updatedAdmin.getAdminId()).isEqualTo(updatedAdminId); // 변경 O
     }
@@ -167,11 +167,11 @@ public class AdminMapperTest {
 
     Admin adminSave(String adminName, String adminId, String adminPassword, String adminPhoneNumber, Boolean adminSex) {
         Admin admin = Admin.builder()
-                .adminName(adminName)
+                .name(adminName)
                 .adminId(adminId)
-                .adminPassword(adminPassword)
-                .adminPhoneNumber(adminPhoneNumber)
-                .adminSex(adminSex)  //true-Male, false-female
+                .password(adminPassword)
+                .phone(adminPhoneNumber)
+                .sex(adminSex)  //true-Male, false-female
                 .build();
         adminMapper.save(admin);
         return admin;
@@ -188,9 +188,9 @@ public class AdminMapperTest {
     void test(Long id, String adminName, String adminId, String adminPhoneNumber, Admin... admins) {
         Admin selectAdmin = Admin.builder()
                 .id(id)
-                .adminName(adminName)
+                .name(adminName)
                 .adminId(adminId)
-                .adminPhoneNumber(adminPhoneNumber)
+                .phone(adminPhoneNumber)
                 .build();
         List<Admin> result = adminMapper.findAll(selectAdmin);
         assertThat(result.size()).isEqualTo(admins.length);
