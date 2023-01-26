@@ -10,11 +10,11 @@ public class Building {
 
     // PK
     private Long id;
-    private Integer buildingNo;
+    private String name;
 
     @Builder
-    public Building(Long id, Integer buildingNo) {
+    public Building(Long id, String name) {
         this.id = id;
-        this.buildingNo = buildingNo;
+        this.name = name;
     }
 }
