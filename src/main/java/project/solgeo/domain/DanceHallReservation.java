@@ -12,14 +12,20 @@ public class DanceHallReservation {
     // PK
     private Long id;
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime date;
+    private LocalDateTime createdDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime lastModifiedDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime dateTime;
     //FK
     private Long residentId;
 
     @Builder
-    public DanceHallReservation(Long id, LocalDateTime date, Long residentId) {
+    public DanceHallReservation(Long id, LocalDateTime createdDate, LocalDateTime lastModifiedDate, LocalDateTime dateTime, Long residentId) {
         this.id = id;
-        this.date = date;
+        this.createdDate = createdDate;
+        this.lastModifiedDate = lastModifiedDate;
+        this.dateTime = dateTime;
         this.residentId = residentId;
     }
 }
