@@ -13,11 +13,11 @@ public class Room {
     private Integer roomFloor;
     private Integer roomNo;
     //FK
-    private Integer buildingId;
+    private Long buildingId;
 
 
     @Builder
-    public Room(Long id, Integer roomFloor, Integer roomNo, Integer buildingId) {
+    public Room(Long id, Integer roomFloor, Integer roomNo, Long buildingId) {
         this.id = id;
         this.roomFloor = roomFloor;
         this.roomNo = roomNo;

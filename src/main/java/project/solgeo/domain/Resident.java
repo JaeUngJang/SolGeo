@@ -15,18 +15,20 @@ public class Resident {
     private Boolean residentSex;
     private String residentId;
     private String residentPassword;
+    private String residentPhoneNumber;
     private Integer residentSignOutCount;
 
     // FK
     private Long roomId;
 
     @Builder
-    public Resident(Long id, String residentName, Boolean residentSex, String residentId, String residentPassword, Integer residentSignOutCount, Long roomId) {
+    public Resident(Long id, String residentName, Boolean residentSex, String residentId, String residentPassword, String residentPhoneNumber,Integer residentSignOutCount, Long roomId) {
         this.id = id;
         this.residentName = residentName;
         this.residentSex = residentSex;
         this.residentId = residentId;
         this.residentPassword = residentPassword;
+        this.residentPhoneNumber = residentPhoneNumber;
         this.residentSignOutCount = residentSignOutCount;
         this.roomId = roomId;
     }

@@ -19,6 +19,8 @@ public interface BuildingMapper {
 
     Optional<Building> findById(Long id);
 
+    Optional<Building> findByBuildingNo(Integer buildingNo);
+
     void delete(Long id);
 
 }

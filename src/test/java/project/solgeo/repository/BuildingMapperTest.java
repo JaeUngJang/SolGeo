@@ -82,6 +82,24 @@ public class BuildingMapperTest {
         assertThat(foundBuilding).isEqualTo(building);
     }
 
+
+    @Test
+    @DisplayName("Find by Building No.")
+    void findByBuildingNo() {
+        // given
+        Integer buildingNo = 10;
+        Building building = Building.builder()
+                .buildingNo(buildingNo)
+                .build();
+        buildingMapper.save(building);
+
+        // when
+        Building foundBuilding = buildingMapper.findByBuildingNo(buildingNo).get();
+
+        // then
+        assertThat(foundBuilding).isEqualTo(building);
+    }
+
     @Test
     @DisplayName("Update Building")
     void update() {

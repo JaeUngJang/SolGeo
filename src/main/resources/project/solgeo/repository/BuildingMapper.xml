@@ -19,6 +19,12 @@
 		where id = #{id}
 	</select>
 	
+	<select id="findByBuildingNo" resultType="project.solgeo.domain.Building">
+		select id, building_no
+		from building
+		where building_no = #{buildingNo}
+	</select>
+	
 	<update id="update">
 		update building
 		<set>
