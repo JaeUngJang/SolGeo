@@ -10,8 +10,8 @@ public class SuperAdmin {
 
     // PK
     private Long id;
-    private LocalDateTime createdTime;
-    private LocalDateTime lastModifiedTime;
+    private LocalDateTime createdDate;
+    private LocalDateTime lastModifiedDate;
     private String name;
     private String superId;
     private String password;
@@ -19,10 +19,10 @@ public class SuperAdmin {
     private String email;
 
     @Builder
-    public SuperAdmin(Long id, LocalDateTime createdTime, LocalDateTime lastModifiedTime, String name, String superId, String password, String phone, String email) {
+    public SuperAdmin(Long id, LocalDateTime createdDate, LocalDateTime lastModifiedDate, String name, String superId, String password, String phone, String email) {
         this.id = id;
-        this.createdTime = createdTime;
-        this.lastModifiedTime = lastModifiedTime;
+        this.createdDate = createdDate;
+        this.lastModifiedDate = lastModifiedDate;
         this.name = name;
         this.superId = superId;
         this.password = password;
