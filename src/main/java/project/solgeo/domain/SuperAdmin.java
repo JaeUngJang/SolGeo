@@ -15,18 +15,18 @@ public class SuperAdmin {
     private String name;
     private String superId;
     private String password;
-    private String phoneNumber;
+    private String phone;
     private String email;
 
     @Builder
-    public SuperAdmin(Long id,LocalDateTime createdTime, LocalDateTime lastModifiedTime, String name, String superId, String password, String phoneNumber, String email) {
+    public SuperAdmin(Long id, LocalDateTime createdTime, LocalDateTime lastModifiedTime, String name, String superId, String password, String phone, String email) {
         this.id = id;
         this.createdTime = createdTime;
         this.lastModifiedTime = lastModifiedTime;
         this.name = name;
         this.superId = superId;
         this.password = password;
-        this.phoneNumber = phoneNumber;
+        this.phone = phone;
         this.email = email;
     }
 }
