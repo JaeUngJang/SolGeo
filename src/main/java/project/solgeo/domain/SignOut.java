@@ -12,9 +12,10 @@ public class SignOut {
 
     // PK
     private Long id;
-
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime registerDate;
+    private LocalDateTime createdDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime lastModifiedDate;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -27,9 +28,10 @@ public class SignOut {
 
 
     @Builder
-    public SignOut(Long id, LocalDateTime registerDate, LocalDate startDate, LocalDate endDate, String destination, Long residentId) {
+    public SignOut(Long id, LocalDateTime createdDate, LocalDateTime lastModifiedDate, LocalDateTime registerDate, LocalDate startDate, LocalDate endDate, String destination, Long residentId) {
         this.id = id;
-        this.registerDate = registerDate;
+        this.createdDate = createdDate;
+        this.lastModifiedDate = lastModifiedDate;
         this.startDate = startDate;
         this.endDate = endDate;
         this.destination = destination;
