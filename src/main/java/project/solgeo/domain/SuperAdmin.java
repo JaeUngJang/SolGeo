@@ -21,7 +21,7 @@ public class SuperAdmin {
     @Builder
     public SuperAdmin(Long id,LocalDateTime createdTime, LocalDateTime lastModifiedTime, String name, String superId, String password, String phoneNumber, String email) {
         this.id = id;
-//        this.createdTime = createdTime;
+        this.createdTime = createdTime;
         this.lastModifiedTime = lastModifiedTime;
         this.name = name;
         this.superId = superId;
