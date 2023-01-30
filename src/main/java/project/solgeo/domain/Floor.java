@@ -19,5 +19,4 @@ public class Floor {
         this.number = number;
         this.buildingId = buildingId;
     }
-
 }
